@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">chokownsik</string>
+    <string name="app_name">Trip storage</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="large_text">
