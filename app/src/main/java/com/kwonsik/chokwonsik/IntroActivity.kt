@@ -27,6 +27,7 @@ class IntroActivity : AppCompatActivity() {
     }
 
     override fun onResume() { // Runnable이 실행되면 ListActivity로 이동하는 코드
+
         super.onResume()
 
         runnable = Runnable {
@@ -37,7 +38,7 @@ class IntroActivity : AppCompatActivity() {
         // Handler를 생성하고 2000ms runnable을 실
         handler = Handler()
         handler?.run {
-            postDelayed(runnable, 2000)
+            postDelayed(runnable, 4000)
         }
     }
 
