@@ -15,30 +15,30 @@ class TripDao(private val realm: Realm) {
 
     //지정된 id의 Trip를 가져와서 반환하는 함수
     fun selectTrip(id: String): TripData {
-            return realm.where(TripData::class.java)
-                .equalTo("id", id)
-                .findFirst() as TripData
+        return realm.where(TripData::class.java)
+            .equalTo("id", id)
+            .findFirst() as TripData
     }
 
     // Trip를 생성하거나 수정하는 함수
-    fun addOrUpdateTrip(TripData:TripData, title: String, content: String) {
+    fun addOrUpdateTrip(memoData:TripData) {
         realm.executeTransaction {
-            //DB를 업데이트 하는 쿼리는 반드시 executeTransaction()함수로 감싸야 한다.
-            // 동시에 여러곳에서 DB를 수정할 수 없도록 대기 시켜주기 때문에 데이터를 안전하게 업데이트 가능
-            TripData.title = title
-            TripData.content = content
-            TripData.createdAt = Date()
+            memoData.createdAt = Date()
 
-            if(content.length > 100)
-                TripData.summary = content.substring(0..100)
+            if(memoData.content.length > 100)
+                memoData.summary = memoData.content.substring(0..100)
             else
-                TripData.summary = content
+                memoData.summary = memoData.content
 
-            // Managed 상태가 아닌 경우 copyToRealm() 함수로 DB에 추가
-            if(!TripData.isManaged) {
-                it.copyToRealm(TripData)
-            }
+            it.copyToRealmOrUpdate(memoData)
         }
     }
+
+//
+//    fun getActiveAlarms(): RealmResults<TripData> {
+//        return realm.where(TripData::class.java)
+//            .greaterThan("alarmTime", Date())
+//            .findAll()
+//    }
 
 }

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kwonsik.chokwonsik">
 
+    // 앱에서 사용할 위치권한을 추가 함
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
         android:name=".KwonsikTripApplication"
         android:allowBackup="true"
