@@ -20,7 +20,7 @@ class IntroActivity : AppCompatActivity() {
         private const val REQUEST_LOCATION_PERMISSION_CODE = 100
     }
 
-    // 위치 권한이 허용되어 있는지 체크하는 함수 (Manifest에 추가것)
+    // 위치 권한이 허용되어 있는지 체크하는 함수 (Manifest에 추가한것)
     fun checkLocationPermission(): Boolean {
         val fineLocationPermission = ContextCompat.checkSelfPermission(
             this,
@@ -68,8 +68,7 @@ class IntroActivity : AppCompatActivity() {
         // 위치 권한이 이미 주어진 경우 ListActivity 로 바로 이동함
         if (checkLocationPermission()) {
             moveListActivity()
-        } else
-        { //shouldShowRequestPermissionRationale 함수로 사용자가 권한을 거절했던 적이 있는지 확인하고 안내 메시지를 출력
+        } else { //shouldShowRequestPermissionRationale 함수로 사용자가 권한을 거절했던 적이 있는지 확인하고 안내 메시지를 출력
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     android.Manifest.permission.ACCESS_FINE_LOCATION))
             {
@@ -80,10 +79,9 @@ class IntroActivity : AppCompatActivity() {
             // 앱에 필요한 권한을 사용자에게 요청하는 시스템 Activity를 띄움
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION),
-                REQUEST_LOCATION_PERMISSION_CODE
-            )
+                        arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION,
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION),
+                        REQUEST_LOCATION_PERMISSION_CODE)
         }
     }
 

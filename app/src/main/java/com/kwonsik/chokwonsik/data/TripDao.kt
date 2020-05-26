@@ -21,24 +21,24 @@ class TripDao(private val realm: Realm) {
     }
 
     // Trip를 생성하거나 수정하는 함수
-    fun addOrUpdateTrip(memoData:TripData) {
+    fun addOrUpdateTrip(tripData: TripData) {
         realm.executeTransaction {
-            memoData.createdAt = Date()
+            tripData.createdAt = Date()
 
-            if(memoData.content.length > 100)
-                memoData.summary = memoData.content.substring(0..100)
+            if (tripData.content.length > 100)
+                tripData.summary = tripData.content.substring(0..100)
             else
-                memoData.summary = memoData.content
+                tripData.summary = tripData.content
 
-            it.copyToRealmOrUpdate(memoData)
+            if(!tripData.isManaged)
+            {
+                it.copyToRealm(tripData)
+            }
+
+            it.copyToRealmOrUpdate(tripData)
+
+
         }
     }
-
-//
-//    fun getActiveAlarms(): RealmResults<TripData> {
-//        return realm.where(TripData::class.java)
-//            .greaterThan("alarmTime", Date())
-//            .findAll()
-//    }
-
 }
+
