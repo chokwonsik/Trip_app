@@ -26,11 +26,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kwonsik.chokwonsik.R
 import com.kwonsik.chokwonsik.data.DetailViewModel
+import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapView
-import com.
+import com.naver.maps.map.NaverMapOptions
 import com.kwonsik.chokwonsik.data.ListViewModel
 import com.kwonsik.chokwonsik.data.TripData
 import com.kwonsik.chokwonsik.data.TripListAdapter
+import com.naver.maps.map.CameraUpdate
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
 import kotlinx.android.synthetic.main.dialog_title.*
@@ -55,6 +58,7 @@ class DetailActivity : AppCompatActivity() {
                 .get(DetailViewModel::class.java)
         }
 
+        // tripLivaData observe
         viewModel!!.tripLiveData.observe(this, Observer {
             supportActionBar?.title = it.title
             contentEdit.setText(it.content)
@@ -83,6 +87,8 @@ class DetailActivity : AppCompatActivity() {
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
                     supportActionBar?.title = titleEdit.text.toString()
                     toolbarLayout.title = titleEdit.text.toString()
+
+                    // 제목이 변경될 때 viewModel의 tripData도 함께 갱신시킴
                     viewModel!!.tripData.title = titleEdit.text.toString()
                 }).show()
         }
@@ -95,7 +101,6 @@ class DetailActivity : AppCompatActivity() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
@@ -137,53 +142,60 @@ class DetailActivity : AppCompatActivity() {
     // IntroActivity에서 이미 체크한 위치 권한 허용 여부를 다시 체크하지 않기 위해서 함수에
     // annotation을 추가함
     @SuppressLint("MissingPermission")
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId)
-        {
+        when (item.itemId) {
             R.id.menu_location -> {
                 // AlertDialog.Builder() 를 사용해서 위치정보 설정을 묻는 다이얼로그를 추가
                 AlertDialog.Builder(this)
                     .setTitle("안내")
                     .setMessage("현재 위치를 메모에 저장하거나 삭제할 수 있습니다.")
+
                     .setPositiveButton("위치지정", DialogInterface.OnClickListener { dialog, which ->
 
                         // locationManager를 가져와서 위치기능이 켜져있는지 확인 (gps 및 네트워크 기능을 둘다 확인해야함)
-                        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                        val isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                        val isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+                        val locationManager =
+                            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                        val isGPSEnabled =
+                            locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                        val isNetworkEnabled =
+                            locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
 
                         // 위치 기능이 둘 다 꺼진경우 SnackBar 를 띄워 시스템의 위치 옵션화면을 안내해 줌
-                        if(!isGPSEnabled && !isNetworkEnabled) {
+                        if (!isGPSEnabled && !isNetworkEnabled) {
                             Snackbar.make(
                                 toolbarLayout,
                                 "폰의 위치기능을 켜야 기능을 사용할 수 있습니다.",
-                                Snackbar.LENGTH_LONG)
+                                Snackbar.LENGTH_LONG
+                            )
                                 .setAction("설정", View.OnClickListener {
-                                    val goToSettings = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                                    val goToSettings =
+                                        Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                                     startActivity(goToSettings)
                                 }).show()
                         }
+
+                        // 위치기능이 하나라도 켜져있을 때의 분기 코드
                         else {
+
+                            // Criteria 객체에 위치 정확도와 배터리 소모량을 설정함
                             val criteria = Criteria()
                             criteria.accuracy = Criteria.ACCURACY_MEDIUM
                             criteria.powerRequirement = Criteria.POWER_MEDIUM
 
-                            locationManager.requestSingleUpdate(criteria, object :
-                                LocationListener {
+                            // locationManager 의 requestSingleUpdate() 함수를 이용하여 위치정보를 1회 받아오는 코드
+                            locationManager.requestSingleUpdate(criteria, object : LocationListener {
                                 override fun onLocationChanged(location: Location?) {
                                     location?.run {
                                         viewModel!!.setLocation(latitude, longitude)
                                     }
                                 }
 
-                                override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                                }
+                                override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) { }
 
-                                override fun onProviderEnabled(provider: String?) {
-                                }
+                                override fun onProviderEnabled(provider: String?) { }
 
-                                override fun onProviderDisabled(provider: String?) {
-                                }
+                                override fun onProviderDisabled(provider: String?) { }
 
                             }, null)
                         }

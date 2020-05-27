@@ -12,6 +12,7 @@ class DetailViewModel : ViewModel() {
 //
 //    private var tripData = TripData()
 
+    // 새로운 tripData 변수 및 tripLivaData 변수 추가
     var tripData = TripData()
     val tripLiveData: MutableLiveData<TripData> by lazy {
         MutableLiveData<TripData>().apply { value = tripData }
@@ -31,16 +32,20 @@ class DetailViewModel : ViewModel() {
     }
 
     fun loadTrip(id: String) {
+        // copyFromRealmd() 으로 unmanaged 객체로 만들어 직접 사용
         tripData = realm.copyFromRealm(tripDao.selectTrip(id))
+        // unmanaged TripData 객체를 tripLiveData에 할당
         tripLiveData.value = tripData
     }
 
+    // 위치정보 삭제
     fun deleteLocation() {
         tripData.latitude = 0.0
         tripData.longitude = 0.0
         tripLiveData.value = tripData
     }
 
+    // 위치정보 설정
     fun setLocation(latitude: Double, longitude: Double) {
         tripData.latitude = latitude
         tripData.longitude = longitude

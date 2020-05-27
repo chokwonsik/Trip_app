@@ -30,14 +30,7 @@ class TripDao(private val realm: Realm) {
             else
                 tripData.summary = tripData.content
 
-            if(!tripData.isManaged)
-            {
-                it.copyToRealm(tripData)
-            }
-
             it.copyToRealmOrUpdate(tripData)
-
-
         }
     }
 }
