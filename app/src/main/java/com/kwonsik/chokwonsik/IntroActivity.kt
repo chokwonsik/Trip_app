@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
+
+
 class IntroActivity : AppCompatActivity() {
 
     var handler: Handler? = null // Handler : Runnable 을 실행하는 클래스

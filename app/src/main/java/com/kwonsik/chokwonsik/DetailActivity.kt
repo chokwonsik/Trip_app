@@ -40,6 +40,7 @@ import kotlinx.android.synthetic.main.dialog_title.*
 import kotlinx.android.synthetic.main.fragment_trip_list.*
 import java.util.*
 
+
 class DetailActivity : AppCompatActivity() {
 
     private var viewModel: DetailViewModel? = null
