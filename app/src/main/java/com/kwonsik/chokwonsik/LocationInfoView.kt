@@ -3,8 +3,10 @@ package com.kwonsik.chokwonsik
 import android.content.Context
 import android.location.Geocoder
 import android.util.AttributeSet
+import android.util.Log
 import kotlinx.android.synthetic.main.view_info.view.*
 import java.util.*
+
 
 // InfoView와 같은 생성자를 만들고 Infoview를 상속받아 생성자에 패러미터를 넘김
 class LocationInfoView @JvmOverloads constructor (context: Context,
@@ -20,6 +22,7 @@ class LocationInfoView @JvmOverloads constructor (context: Context,
 
     // 위치 값을 입력받았을때 표기하기 위한 함수
     fun setLocation(latitude: Double, longitude: Double) {
+
         if(latitude == 0.0 && longitude == 0.0) {
             infoText.setText("위치정보가 없습니다")
         }

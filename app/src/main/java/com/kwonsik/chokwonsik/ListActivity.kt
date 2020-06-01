@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.kwonsik.chokwonsik.data.TripListAdapter
 import com.kwonsik.chokwonsik.data.ListViewModel
-import com.kwonsik.chokwonsik.data.TripData
-import java.util.*
 
 
 import kotlinx.android.synthetic.main.activity_list.*

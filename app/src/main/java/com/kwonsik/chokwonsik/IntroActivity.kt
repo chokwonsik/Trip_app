@@ -10,8 +10,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-
-
 class IntroActivity : AppCompatActivity() {
 
     var handler: Handler? = null // Handler : Runnable 을 실행하는 클래스
@@ -24,14 +22,10 @@ class IntroActivity : AppCompatActivity() {
 
     // 위치 권한이 허용되어 있는지 체크하는 함수 (Manifest에 추가한것)
     fun checkLocationPermission(): Boolean {
-        val fineLocationPermission = ContextCompat.checkSelfPermission(
-            this,
-            android.Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-        val coarseLocationPermission = ContextCompat.checkSelfPermission(
-            this,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
+        val fineLocationPermission = ContextCompat.checkSelfPermission(this,
+            android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        val coarseLocationPermission = ContextCompat.checkSelfPermission(this,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
 
         return fineLocationPermission && coarseLocationPermission
     }

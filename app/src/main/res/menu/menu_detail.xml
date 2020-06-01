@@ -2,9 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.kwonsik.chokwonsik.DetailActivity">
-
     <item android:id="@+id/menu_location"
         android:title="위치설정"
         app:showAsAction="never" />
-
 </menu>

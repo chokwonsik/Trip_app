@@ -12,7 +12,7 @@ class KwonsikTripApplication() : Application() {
         super.onCreate()
         Realm.init(this)
         NaverMapSdk.getInstance(this).setClient(
-            NaverMapSdk.NaverCloudPlatformClient("YOUR_CLIENT_ID"))
+            NaverMapSdk.NaverCloudPlatformClient("jsojqwdhkb"))
 
     }
 

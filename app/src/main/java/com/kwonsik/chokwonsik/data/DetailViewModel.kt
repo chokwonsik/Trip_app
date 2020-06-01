@@ -6,11 +6,7 @@ import androidx.lifecycle.ViewModel
 import io.realm.Realm
 import java.util.*
 
-class DetailViewModel : ViewModel() {
-//    val title: MutableLiveData<String> = MutableLiveData<String>().apply { value = "" }
-//    val content: MutableLiveData<String> = MutableLiveData<String>().apply { value = "" }
-//
-//    private var tripData = TripData()
+class DetailViewModel: ViewModel() {
 
     // 새로운 tripData 변수 및 tripLivaData 변수 추가
     var tripData = TripData()
@@ -54,24 +50,5 @@ class DetailViewModel : ViewModel() {
 
     fun addOrUpdateTrip(context: Context) {
         tripDao.addOrUpdateTrip(tripData)
-
-//        AlarmTool.deleteAlarm(context, tripData.id)
-//        if(tripData.alarmTime.after(Date())) {
-//            AlarmTool.addAlarm(context, tripData.id, tripData.alarmTime)
-//        }
     }
-
-
-//    // Trip을 수정할 때 사용하기 위해 Trip의 id를 받아 tripData 를 로드하는 함수
-//    fun loadTrip(id: String) {
-//        tripData = tripDao.selectTrip(id)
-//        title.value = tripData.title
-//        content.value = tripData.content
-//    }
-//
-//    // Trip의 추가나 수정시 사용하기 위해 TripDao와 연결
-//    fun addOrUpdateTrip(title: String, content: String) {
-//        tripDao.addOrUpdateTrip(tripData, title, content)
-//    }
-
 }

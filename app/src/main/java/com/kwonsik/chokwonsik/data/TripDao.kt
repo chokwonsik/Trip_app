@@ -21,11 +21,11 @@ class TripDao(private val realm: Realm) {
     }
 
     // Trip를 생성하거나 수정하는 함수
-    fun addOrUpdateTrip(tripData: TripData) {
+    fun addOrUpdateTrip(tripData:TripData) {
         realm.executeTransaction {
             tripData.createdAt = Date()
 
-            if (tripData.content.length > 100)
+            if(tripData.content.length > 100)
                 tripData.summary = tripData.content.substring(0..100)
             else
                 tripData.summary = tripData.content

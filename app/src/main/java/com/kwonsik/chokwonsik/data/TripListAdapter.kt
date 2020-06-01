@@ -8,7 +8,7 @@ import com.kwonsik.chokwonsik.R
 import kotlinx.android.synthetic.main.item_trip.view.*
 import java.text.SimpleDateFormat
 
-class TripListAdapter(private val list: MutableList<TripData>) :
+class TripListAdapter(private val list: MutableList<TripData>):
     RecyclerView.Adapter<ItemViewHolder>() {
 
     private val dateFormat = SimpleDateFormat("MM/dd HH:mm")
@@ -22,8 +22,8 @@ class TripListAdapter(private val list: MutableList<TripData>) :
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_trip, parent, false)
         view.setOnClickListener { //아이템이 클릭될 때 view의 tagdptj Trip id를 받아서 리스너에 넘김
             itemClickListener?.run {
-                val TripId = it.tag as String
-                this(TripId)
+                val tripId = it.tag as String
+                this(tripId)
             }
         }
         return ItemViewHolder(view)

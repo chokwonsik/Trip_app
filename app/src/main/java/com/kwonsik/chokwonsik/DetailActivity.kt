@@ -18,26 +18,23 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.kwonsik.chokwonsik.R
+
 import com.kwonsik.chokwonsik.data.DetailViewModel
+import com.kwonsik.chokwonsik.LocationInfoView
+
+import com.google.android.material.snackbar.Snackbar
+
 import com.naver.maps.geometry.LatLng
-import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapView
-import com.naver.maps.map.NaverMapOptions
-import com.kwonsik.chokwonsik.data.ListViewModel
-import com.kwonsik.chokwonsik.data.TripData
-import com.kwonsik.chokwonsik.data.TripListAdapter
 import com.naver.maps.map.CameraUpdate
+import com.naver.maps.map.CameraPosition
+import com.naver.maps.map.NaverMapOptions
+
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
-import kotlinx.android.synthetic.main.dialog_title.*
-import kotlinx.android.synthetic.main.fragment_trip_list.*
 import java.util.*
 
 
@@ -60,17 +57,11 @@ class DetailActivity : AppCompatActivity() {
         }
 
         // tripLivaData observe
-        viewModel!!.tripLiveData.observe(this, Observer {
+        viewModel!!.tripLiveData.observe (this, Observer {
             supportActionBar?.title = it.title
             contentEdit.setText(it.content)
             locationInfoView.setLocation(it.latitude, it.longitude)
         })
-
-//        // 제목과 내용에 Observer를 걸어 화면을 갱신
-//        viewModel!!.let {
-//            it.title.observe(this, Observer { supportActionBar?.title = it } )
-//            it.content.observe(this, Observer { contentEdit.setText(it) } )
-//        }
 
         // ListActivity에서 아이템을 선택했을때 보내주는 Trip id로 데이터를 로드함.
         val tripId = intent.getStringExtra("TRIP_ID")
@@ -94,7 +85,6 @@ class DetailActivity : AppCompatActivity() {
                 }).show()
         }
 
-
         // 내용이 변경될 때마다 Listener 내에서 viewModel의 tripData의 내용도 같이 변경해
         contentEdit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -102,21 +92,32 @@ class DetailActivity : AppCompatActivity() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
         locationInfoView.setOnClickListener {
+
+            // viewModel 에 저장되어 있는 좌표가 유효한지부터 확인함.
             val latitude = viewModel!!.tripData.latitude
             val longitude = viewModel!!.tripData.longitude
 
             if (!(latitude == 0.0 && longitude == 0.0)) {
+                // 네이버 지도 sdk 에서 제공하는 MapView 객체 생성 (지도를 출력하는 View)
                 val mapView = MapView(this)
+                // 네이버 지도는 맵이 로드된 후에 NaverMap 객체를 받은 후에만 옵션의 변경이 가능
+
+                // NaverMap 객체를 받기 위해서 getMapAsync() 함수에 리스너를 설정
                 mapView.getMapAsync {
+                    // 여행의 위치정보를 NaverMap의 cameraUpdate 객체에 넣어줌
                     val latitude = viewModel!!.tripData.latitude
                     val longitude = viewModel!!.tripData.longitude
                     val cameraUpdate = CameraUpdate.scrollTo(LatLng(latitude, longitude))
+                    // it 변수에 반환된 현재 지도의 NaverMap 객체에 카메라 위치를 적용
                     it.moveCamera(cameraUpdate)
                 }
+
+                // 모든 설정이 끝난 mapView는 AlertDialog에 설정하여 출력
                 AlertDialog.Builder(this)
                     .setView(mapView)
                     .show()
@@ -129,13 +130,9 @@ class DetailActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         viewModel?.addOrUpdateTrip(this)
-
-//            viewModel?.addOrUpdateTrip(
-//                supportActionBar?.title.toString(),
-//                contentEdit.text.toString()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detail, menu)
         return true
     }
@@ -143,14 +140,14 @@ class DetailActivity : AppCompatActivity() {
     // IntroActivity에서 이미 체크한 위치 권한 허용 여부를 다시 체크하지 않기 위해서 함수에
     // annotation을 추가함
     @SuppressLint("MissingPermission")
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        when (item.itemId)
+        {
             R.id.menu_location -> {
                 // AlertDialog.Builder() 를 사용해서 위치정보 설정을 묻는 다이얼로그를 추가
                 AlertDialog.Builder(this)
                     .setTitle("안내")
-                    .setMessage("현재 위치를 메모에 저장하거나 삭제할 수 있습니다.")
+                    .setMessage("현재 위치를 여에 저장하거나 삭제할 수 있습니다.")
 
                     .setPositiveButton("위치지정", DialogInterface.OnClickListener { dialog, which ->
 
@@ -167,8 +164,7 @@ class DetailActivity : AppCompatActivity() {
                             Snackbar.make(
                                 toolbarLayout,
                                 "폰의 위치기능을 켜야 기능을 사용할 수 있습니다.",
-                                Snackbar.LENGTH_LONG
-                            )
+                                Snackbar.LENGTH_LONG)
                                 .setAction("설정", View.OnClickListener {
                                     val goToSettings =
                                         Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
@@ -186,6 +182,7 @@ class DetailActivity : AppCompatActivity() {
 
                             // locationManager 의 requestSingleUpdate() 함수를 이용하여 위치정보를 1회 받아오는 코드
                             locationManager.requestSingleUpdate(criteria, object : LocationListener {
+                                // 실제 구현할 함수는 위치정보가 갱신될 때 샐행되는 onLocationChanged()로 위치값을 받아 ViewModel에 넘겨주면 됨
                                 override fun onLocationChanged(location: Location?) {
                                     location?.run {
                                         viewModel!!.setLocation(latitude, longitude)
