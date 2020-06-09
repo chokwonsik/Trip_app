@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -23,19 +24,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.kwonsik.chokwonsik.data.DetailViewModel
-import com.kwonsik.chokwonsik.LocationInfoView
 
 import com.google.android.material.snackbar.Snackbar
 
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.MapView
 import com.naver.maps.map.CameraUpdate
-import com.naver.maps.map.CameraPosition
-import com.naver.maps.map.NaverMapOptions
 
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
-import java.util.*
 
 
 class DetailActivity : AppCompatActivity() {
@@ -61,6 +58,7 @@ class DetailActivity : AppCompatActivity() {
             supportActionBar?.title = it.title
             contentEdit.setText(it.content)
             locationInfoView.setLocation(it.latitude, it.longitude)
+
         })
 
         // ListActivity에서 아이템을 선택했을때 보내주는 Trip id로 데이터를 로드함.
@@ -121,6 +119,7 @@ class DetailActivity : AppCompatActivity() {
                 AlertDialog.Builder(this)
                     .setView(mapView)
                     .show()
+
             }
         }
     }

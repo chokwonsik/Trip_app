@@ -1,10 +1,7 @@
 package com.kwonsik.chokwonsik.data
 
-//import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.realm.Realm
-import io.realm.RealmResults
-
 
 class ListViewModel : ViewModel() {
     // Realm 인스턴스를 생성하여 사용하는 변수

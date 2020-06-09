@@ -45,18 +45,6 @@ class ListActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             val intent = Intent(applicationContext, DetailActivity::class.java)
             startActivity(intent)
-            // DetailActivity로 이동하는 코드를 잠시 주석처
-
-
-            /*
-            viewModel!!.let {
-                var tripData = TripData()
-                tripData.title = "제목 테스트"
-                tripData.summary = "요약내용 테스트"
-                tripData.createdAt = Date()
-
-                it.addTrip(tripData)
-             */
             }
             // Dummy 테스트를 위한 TripData를 생성하여 ViewModel addTrip에 전달하여 추가
         }

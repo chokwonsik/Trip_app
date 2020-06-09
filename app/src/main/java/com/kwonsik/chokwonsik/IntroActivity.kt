@@ -54,7 +54,7 @@ class IntroActivity : AppCompatActivity() {
 
         handler = Handler()
         handler?.run {
-            postDelayed(runnable, 2000)
+            postDelayed(runnable, 300)
         }
     }
 
