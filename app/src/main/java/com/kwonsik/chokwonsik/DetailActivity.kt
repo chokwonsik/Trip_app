@@ -1,13 +1,13 @@
 package com.kwonsik.chokwonsik
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import android.location.Criteria
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.location.*
 import android.os.Bundle
 import android.provider.Settings
 import android.text.Editable
@@ -18,8 +18,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
+import androidx.annotation.NonNull
+import androidx.annotation.Px
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
@@ -28,24 +32,36 @@ import com.kwonsik.chokwonsik.data.DetailViewModel
 import com.google.android.material.snackbar.Snackbar
 
 import com.naver.maps.geometry.LatLng
+import com.naver.maps.geometry.LatLngBounds
 import com.naver.maps.map.MapView
 import com.naver.maps.map.CameraUpdate
+import com.naver.maps.map.LocationSource
+import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.overlay.OverlayImage
+import com.naver.maps.map.util.MarkerIcons
 
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
+import kotlinx.android.synthetic.main.view_info.view.*
+import java.io.File
+import java.lang.NullPointerException
+import java.util.*
 
 
 class DetailActivity : AppCompatActivity() {
 
     private var viewModel: DetailViewModel? = null
 
+    private val REQUEST_IMAGE = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            startActivityForResult(intent, REQUEST_IMAGE)
         }
 
         viewModel = application!!.let {
@@ -54,11 +70,18 @@ class DetailActivity : AppCompatActivity() {
         }
 
         // tripLivaData observe
-        viewModel!!.tripLiveData.observe (this, Observer {
+        viewModel!!.tripLiveData.observe(this, Observer {
             supportActionBar?.title = it.title
             contentEdit.setText(it.content)
             locationInfoView.setLocation(it.latitude, it.longitude)
+            weatherInfoView.setWeather(it.weather)
 
+            // 이미지 파일 경로를 Uri로 바꾸어 bglmage에 설정함.
+            val imageFile = File(
+                getDir("image", Context.MODE_PRIVATE),
+                it.imageFile)
+
+            bgImage.setImageURI(imageFile.toUri())
         })
 
         // ListActivity에서 아이템을 선택했을때 보내주는 Trip id로 데이터를 로드함.
@@ -113,12 +136,61 @@ class DetailActivity : AppCompatActivity() {
                     val cameraUpdate = CameraUpdate.scrollTo(LatLng(latitude, longitude))
                     // it 변수에 반환된 현재 지도의 NaverMap 객체에 카메라 위치를 적용
                     it.moveCamera(cameraUpdate)
+
+                    it.setOnMapLongClickListener { point, coord ->
+                        Toast.makeText(
+                            this, "${coord.latitude}, ${coord.longitude}",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+
+                    val uiSettings = it.uiSettings
+                    uiSettings.isCompassEnabled = true
+                    uiSettings.isIndoorLevelPickerEnabled = true
+                    uiSettings.isLocationButtonEnabled = true
+
+
+                    val marker = Marker()
+                    marker.position = LatLng(latitude, longitude)
+                    marker.icon = OverlayImage.fromResource(R.drawable.ic_location)
+                    marker.icon = MarkerIcons.BLACK
+                    marker.iconTintColor = Color.RED
+                    marker.width = 50
+                    marker.height = 80
+                    marker.isIconPerspectiveEnabled = true
+                    marker.captionText = "현재위치"
+                    marker.map = it
+
+                    val marker2 = Marker()
+                    marker2.position = LatLng(37.567150, 126.978046)
+                    marker2.icon = OverlayImage.fromResource(R.drawable.ic_location)
+                    marker2.icon = MarkerIcons.BLACK
+                    marker2.iconTintColor = Color.RED
+                    marker2.width = 50
+                    marker2.height = 80
+                    marker2.isIconPerspectiveEnabled = true
+                    marker2.captionText = "서울시청"
+                    marker2.map = it
+
+                    val marker3 = Marker()
+                    marker3.position = LatLng(35.179888, 129.074981)
+                    marker3.icon = OverlayImage.fromResource(R.drawable.ic_location)
+                    marker3.icon = MarkerIcons.BLACK
+                    marker3.iconTintColor = Color.RED
+                    marker3.width = 50
+                    marker3.height = 80
+                    marker3.isIconPerspectiveEnabled = true
+                    marker3.captionText = "부산시청"
+                    marker3.map = it
+
                 }
 
                 // 모든 설정이 끝난 mapView는 AlertDialog에 설정하여 출력
                 AlertDialog.Builder(this)
                     .setView(mapView)
                     .show()
+
 
             }
         }
@@ -131,7 +203,7 @@ class DetailActivity : AppCompatActivity() {
         viewModel?.addOrUpdateTrip(this)
     }
 
-     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detail, menu)
         return true
     }
@@ -140,23 +212,18 @@ class DetailActivity : AppCompatActivity() {
     // annotation을 추가함
     @SuppressLint("MissingPermission")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId)
-        {
+        when (item.itemId) {
             R.id.menu_location -> {
                 // AlertDialog.Builder() 를 사용해서 위치정보 설정을 묻는 다이얼로그를 추가
                 AlertDialog.Builder(this)
                     .setTitle("안내")
                     .setMessage("현재 위치를 여에 저장하거나 삭제할 수 있습니다.")
-
                     .setPositiveButton("위치지정", DialogInterface.OnClickListener { dialog, which ->
 
                         // locationManager를 가져와서 위치기능이 켜져있는지 확인 (gps 및 네트워크 기능을 둘다 확인해야함)
-                        val locationManager =
-                            getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                        val isGPSEnabled =
-                            locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                        val isNetworkEnabled =
-                            locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+                        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                        val isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                        val isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
 
                         // 위치 기능이 둘 다 꺼진경우 SnackBar 를 띄워 시스템의 위치 옵션화면을 안내해 줌
                         if (!isGPSEnabled && !isNetworkEnabled) {
@@ -165,15 +232,12 @@ class DetailActivity : AppCompatActivity() {
                                 "폰의 위치기능을 켜야 기능을 사용할 수 있습니다.",
                                 Snackbar.LENGTH_LONG)
                                 .setAction("설정", View.OnClickListener {
-                                    val goToSettings =
-                                        Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                                    val goToSettings = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                                     startActivity(goToSettings)
                                 }).show()
                         }
-
                         // 위치기능이 하나라도 켜져있을 때의 분기 코드
                         else {
-
                             // Criteria 객체에 위치 정확도와 배터리 소모량을 설정함
                             val criteria = Criteria()
                             criteria.accuracy = Criteria.ACCURACY_MEDIUM
@@ -181,20 +245,23 @@ class DetailActivity : AppCompatActivity() {
 
                             // locationManager 의 requestSingleUpdate() 함수를 이용하여 위치정보를 1회 받아오는 코드
                             locationManager.requestSingleUpdate(criteria, object : LocationListener {
-                                // 실제 구현할 함수는 위치정보가 갱신될 때 샐행되는 onLocationChanged()로 위치값을 받아 ViewModel에 넘겨주면 됨
-                                override fun onLocationChanged(location: Location?) {
-                                    location?.run {
-                                        viewModel!!.setLocation(latitude, longitude)
+                                    // 실제 구현할 함수는 위치정보가 갱신될 때 샐행되는 onLocationChanged()로 위치값을 받아 ViewModel에 넘겨주면 됨
+                                    override fun onLocationChanged(location: Location?) {
+                                        location?.run {
+                                            viewModel!!.setLocation(latitude, longitude)
+                                        }
                                     }
-                                }
 
-                                override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) { }
+                                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle? ) {
+                                    }
 
-                                override fun onProviderEnabled(provider: String?) { }
+                                    override fun onProviderEnabled(provider: String?) {
+                                    }
 
-                                override fun onProviderDisabled(provider: String?) { }
+                                    override fun onProviderDisabled(provider: String?) {
+                                    }
 
-                            }, null)
+                                },null)
                         }
                     })
                     .setNegativeButton("삭제", DialogInterface.OnClickListener { dialog, which ->
@@ -202,7 +269,83 @@ class DetailActivity : AppCompatActivity() {
                     })
                     .show()
             }
+
+            R.id.menu_weather -> {
+                AlertDialog.Builder(this)
+                    .setTitle("안내")
+                    .setMessage("현재 날씨를 여에 저장하거나 삭제할 수 있습니다.")
+                    .setPositiveButton("날씨 가져오기", DialogInterface.OnClickListener { dialog, which ->
+                        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                        val isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                        val isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+
+                        if (!isGPSEnabled && !isNetworkEnabled) {
+                            Snackbar.make(
+                                toolbarLayout,
+                                "폰의 위치기능을 켜야 기능을 사용할 수 있습니다.",
+                                Snackbar.LENGTH_LONG)
+                                .setAction("설정", View.OnClickListener {
+                                    val goToSettings = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                                    startActivity(goToSettings)
+                                }).show()
+                        }
+                        else {
+                            val criteria = Criteria()
+                            criteria.accuracy = Criteria.ACCURACY_MEDIUM
+                            criteria.powerRequirement = Criteria.POWER_MEDIUM
+
+                            locationManager.requestSingleUpdate(criteria, object : LocationListener {
+                                    override fun onLocationChanged(location: Location?) {
+                                        location?.run {
+                                            //위치 기능이 켜져있을 받아온 위치를 setWeather() 함수에 전달함
+                                            viewModel!!.setWeather(latitude, longitude)
+                                        }
+                                    }
+
+                                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+                                    }
+
+                                    override fun onProviderEnabled(provider: String?) {
+                                    }
+
+                                    override fun onProviderDisabled(provider: String?) {
+                                    }
+
+                                },null)
+                        }
+                    })
+                    .setNegativeButton("삭제", DialogInterface.OnClickListener { dialog, which ->
+                        viewModel!!.deleteWeather()
+                    })
+                    .show()
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // 요청했던 코드가 동일한지 결과값이 OK 인지 확인함.
+        if(requestCode == REQUEST_IMAGE && resultCode == Activity.RESULT_OK) {
+            try {
+                // 결과값으로 들어온 데이터를 비트맵으로 변화함.
+                val inputStream = data?.data?.let { contentResolver.openInputStream(it) }
+                inputStream?.let {
+                    val image = BitmapFactory.decodeStream(it)
+
+                    // bgImage 에 표시되는 이미지를 null로 초기화 하고 새 이미지를 viewModel 에 설정함.
+                    bgImage.setImageURI(null)
+                    image?.let { viewModel?.setImageFile(this, it) }
+
+                    // 작업이 끝나면 inputStream 은 닫아줌.
+                    it.close()
+                }
+            }
+            catch (e: Exception) {
+                println(e)
+            }
+        }
     }
 }

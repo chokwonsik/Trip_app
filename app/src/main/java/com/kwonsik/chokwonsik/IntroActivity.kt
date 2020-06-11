@@ -46,6 +46,7 @@ class IntroActivity : AppCompatActivity() {
 
     // Runnable이 실행되면 ListActivity로 이동하는 코드
     fun moveListActivity() {
+
         runnable = Runnable {
             val intent = Intent(applicationContext, ListActivity::class.java)
             startActivity(intent)
@@ -54,7 +55,7 @@ class IntroActivity : AppCompatActivity() {
 
         handler = Handler()
         handler?.run {
-            postDelayed(runnable, 300)
+            postDelayed(runnable, 200)
         }
     }
 
@@ -83,7 +84,6 @@ class IntroActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-
         handler?.removeCallbacks(runnable)
     }
 }
