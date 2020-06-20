@@ -11,7 +11,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 class IntroActivity : AppCompatActivity() {
-
+    
     var handler: Handler? = null // Handler : Runnable 을 실행하는 클래스
     var runnable: Runnable? = null // Runnable : 병렬 실행이 가능한 Thread를 만들어주는 클래스
 
