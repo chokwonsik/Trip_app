@@ -4,16 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+
     tools:context=".IntroActivity">
+
+<!--    <color name="colorPrimary">#F5DA81</color>-->
+<!--    <color name="colorPrimaryDark">#F5DA81</color>-->
+<!--    <color name="colorAccent">#FACC2E</color>-->
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="500dp"
+        android:layout_height="400dp"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo2"
-        android:contentDescription="TODO" />
+        app:layout_constraintVertical_bias="0.497"
+        app:srcCompat="@drawable/intro3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

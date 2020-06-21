@@ -174,14 +174,14 @@ class DetailActivity : AppCompatActivity() {
                     marker2.map = it
 
                     val marker3 = Marker()
-                    marker3.position = LatLng(35.179888, 129.074981)
+                    marker3.position = LatLng(33.484365, 126.463622)
                     marker3.icon = OverlayImage.fromResource(R.drawable.ic_location)
                     marker3.icon = MarkerIcons.BLACK
                     marker3.iconTintColor = Color.RED
                     marker3.width = 50
                     marker3.height = 80
                     marker3.isIconPerspectiveEnabled = true
-                    marker3.captionText = "부산시청"
+                    marker3.captionText = "돈사돈"
                     marker3.map = it
 
                 }
@@ -217,7 +217,7 @@ class DetailActivity : AppCompatActivity() {
                 // AlertDialog.Builder() 를 사용해서 위치정보 설정을 묻는 다이얼로그를 추가
                 AlertDialog.Builder(this)
                     .setTitle("안내")
-                    .setMessage("현재 위치를 여에 저장하거나 삭제할 수 있습니다.")
+                    .setMessage("현재 위치를 저장하거나 삭제할 수 있습니다.")
                     .setPositiveButton("위치지정", DialogInterface.OnClickListener { dialog, which ->
 
                         // locationManager를 가져와서 위치기능이 켜져있는지 확인 (gps 및 네트워크 기능을 둘다 확인해야함)
@@ -273,7 +273,7 @@ class DetailActivity : AppCompatActivity() {
             R.id.menu_weather -> {
                 AlertDialog.Builder(this)
                     .setTitle("안내")
-                    .setMessage("현재 날씨를 여에 저장하거나 삭제할 수 있습니다.")
+                    .setMessage("현재 날씨를 저장하거나 삭제할 수 있습니다.")
                     .setPositiveButton("날씨 가져오기", DialogInterface.OnClickListener { dialog, which ->
                         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
                         val isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)

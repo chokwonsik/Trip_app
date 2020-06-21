@@ -13,6 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:hint="여행을 추가해 주세요." />
+        android:hint="행복했던 여행을 기록해 주세요." />
 
 </androidx.core.widget.NestedScrollView>

@@ -40,7 +40,7 @@ class IntroActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        // 안드로이드 앱을 띄우는 window의 속성을 변경하여 시스템 ui(작업표시)를 숨기고 전체화면으로 표시하는 기
+        // 안드로이드 앱을 띄우는 window의 속성을 변경하여 시스템 ui(작업표시)를 숨기고 전체화면으로 표시하는 기능
 
     }
 
@@ -55,7 +55,7 @@ class IntroActivity : AppCompatActivity() {
 
         handler = Handler()
         handler?.run {
-            postDelayed(runnable, 200)
+            postDelayed(runnable, 5000)
         }
     }
 
