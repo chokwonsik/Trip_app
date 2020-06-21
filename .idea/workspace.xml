@@ -12,9 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0135545-1a0c-4661-bfde-efa6c02ef96c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/intro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/intro2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/intro3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_location2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -29,13 +27,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/DetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/DetailActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/IntroActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/IntroActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/KwonsikTripApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/KwonsikTripApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/img_intro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_intro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_intro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,26 +238,26 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1082" y="325" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1591767161887" />
-    <state width="1750" height="294" key="GridCell.Tab.0.bottom" timestamp="1592742726447">
+    <state width="854" height="286" key="GridCell.Tab.0.bottom" timestamp="1592749322299">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="854" height="87" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671525" />
-    <state width="1750" height="294" key="GridCell.Tab.0.bottom/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592742726447" />
-    <state width="1750" height="294" key="GridCell.Tab.0.center" timestamp="1592742726447">
+    <state width="854" height="286" key="GridCell.Tab.0.bottom/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
+    <state width="854" height="286" key="GridCell.Tab.0.center" timestamp="1592749322299">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="854" height="87" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671524" />
-    <state width="1750" height="294" key="GridCell.Tab.0.center/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592742726447" />
-    <state width="1750" height="294" key="GridCell.Tab.0.left" timestamp="1592742726447">
+    <state width="854" height="286" key="GridCell.Tab.0.center/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
+    <state width="854" height="286" key="GridCell.Tab.0.left" timestamp="1592749322299">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="854" height="87" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671524" />
-    <state width="1750" height="294" key="GridCell.Tab.0.left/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592742726447" />
-    <state width="1750" height="294" key="GridCell.Tab.0.right" timestamp="1592742726447">
+    <state width="854" height="286" key="GridCell.Tab.0.left/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
+    <state width="854" height="286" key="GridCell.Tab.0.right" timestamp="1592749322299">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="854" height="87" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671525" />
-    <state width="1750" height="294" key="GridCell.Tab.0.right/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592742726447" />
+    <state width="854" height="286" key="GridCell.Tab.0.right/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
     <state x="484" y="321" key="IDE.errors.dialog" timestamp="1592738133179">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>

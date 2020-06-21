@@ -150,39 +150,31 @@ class DetailActivity : AppCompatActivity() {
                     uiSettings.isIndoorLevelPickerEnabled = true
                     uiSettings.isLocationButtonEnabled = true
 
+                    fun marker_list(latitude: Double, longitude: Double, name_place: String)
+                    {
+                        val marker = Marker()
+                        marker.position = LatLng(latitude, longitude)
+                        marker.icon = OverlayImage.fromResource(R.drawable.ic_location2)
+                        marker.icon = MarkerIcons.BLACK
+                        marker.iconTintColor = Color.BLUE
+                        marker.width = 50
+                        marker.height = 80
+                        marker.isIconPerspectiveEnabled = true
+                        marker.captionText = name_place
+                        marker.map = it
+                        marker.isHideCollidedSymbols = true
+                    }
 
-                    val marker = Marker()
-                    marker.position = LatLng(latitude, longitude)
-                    marker.icon = OverlayImage.fromResource(R.drawable.ic_location)
-                    marker.icon = MarkerIcons.BLACK
-                    marker.iconTintColor = Color.RED
-                    marker.width = 50
-                    marker.height = 80
-                    marker.isIconPerspectiveEnabled = true
-                    marker.captionText = "현재위치"
-                    marker.map = it
-
-                    val marker2 = Marker()
-                    marker2.position = LatLng(37.567150, 126.978046)
-                    marker2.icon = OverlayImage.fromResource(R.drawable.ic_location)
-                    marker2.icon = MarkerIcons.BLACK
-                    marker2.iconTintColor = Color.RED
-                    marker2.width = 50
-                    marker2.height = 80
-                    marker2.isIconPerspectiveEnabled = true
-                    marker2.captionText = "서울시청"
-                    marker2.map = it
-
-                    val marker3 = Marker()
-                    marker3.position = LatLng(33.484365, 126.463622)
-                    marker3.icon = OverlayImage.fromResource(R.drawable.ic_location)
-                    marker3.icon = MarkerIcons.BLACK
-                    marker3.iconTintColor = Color.RED
-                    marker3.width = 50
-                    marker3.height = 80
-                    marker3.isIconPerspectiveEnabled = true
-                    marker3.captionText = "돈사돈"
-                    marker3.map = it
+                    marker_list(latitude,longitude,"현재위치")
+                    marker_list(37.567150, 126.978046,"서울시청")
+                    marker_list(33.484365, 126.463622,"돈사돈")
+                    marker_list(33.309276, 126.633837,"휴애리 자연 생활공")
+                    marker_list(33.306081, 126.289459,"오설록 티 뮤지엄")
+                    marker_list(33.528692, 126.771460,"만장굴")
+                    marker_list(33.248163, 126.554417,"천지연 폭포")
+                    marker_list(33.394131, 126.239687,"협재 해수욕장")
+                    marker_list(33.250498, 126.412194,"테디베어뮤지엄")
+                    marker_list(33.511805, 126.526120,"동문재래시")
 
                 }
 
