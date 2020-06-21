@@ -15,7 +15,7 @@ class IntroActivity : AppCompatActivity() {
     var handler: Handler? = null // Handler : Runnable 을 실행하는 클래스
     var runnable: Runnable? = null // Runnable : 병렬 실행이 가능한 Thread를 만들어주는 클래스
 
-    // 권한 요청시 권한 Activity에 전달할 고유 코드(상수) 추가
+    // map api, 권한 요청시 권한 Activity에 전달할 고유 코드(상수) 추가
     companion object {
         private const val REQUEST_LOCATION_PERMISSION_CODE = 100
     }
@@ -41,7 +41,6 @@ class IntroActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         // 안드로이드 앱을 띄우는 window의 속성을 변경하여 시스템 ui(작업표시)를 숨기고 전체화면으로 표시하는 기능
-
     }
 
     // Runnable이 실행되면 ListActivity로 이동하는 코드

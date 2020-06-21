@@ -52,12 +52,15 @@ class DetailActivity : AppCompatActivity() {
 
     private var viewModel: DetailViewModel? = null
 
+    //   Intent로 Activity 결과를 요청할 때 사용하는 요청 코드 값을 추가
     private val REQUEST_IMAGE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         setSupportActionBar(toolbar)
+
+        // fab의 OnClickListener에서 기기내에서 이미지 파일을 읽어올 수 있는 ACTION_GET_CONTENT를 이용하여 해당 기능이 있는 activity를 호출.
         fab.setOnClickListener { view ->
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
@@ -167,14 +170,13 @@ class DetailActivity : AppCompatActivity() {
 
                     marker_list(latitude,longitude,"현재위치")
                     marker_list(37.567150, 126.978046,"서울시청")
-                    marker_list(33.484365, 126.463622,"돈사돈")
-                    marker_list(33.309276, 126.633837,"휴애리 자연 생활공")
-                    marker_list(33.306081, 126.289459,"오설록 티 뮤지엄")
+                    marker_list(33.309276, 126.633837,"휴애리")
+                    marker_list(33.306081, 126.289459,"오설록")
                     marker_list(33.528692, 126.771460,"만장굴")
-                    marker_list(33.248163, 126.554417,"천지연 폭포")
+                    marker_list(33.248163, 126.554417,"천지연")
                     marker_list(33.394131, 126.239687,"협재 해수욕장")
                     marker_list(33.250498, 126.412194,"테디베어뮤지엄")
-                    marker_list(33.511805, 126.526120,"동문재래시")
+                    marker_list(33.511805, 126.526120,"동문재래시장")
 
                 }
 

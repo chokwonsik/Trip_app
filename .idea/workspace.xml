@@ -12,21 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0135545-1a0c-4661-bfde-efa6c02ef96c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_location2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/DetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/DetailActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/IntroActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/IntroActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/ListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/ListActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/LocationInfoView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/LocationInfoView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/TripListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/TripListFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/WeatherInfoView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/WeatherInfoView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/DetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/DetailViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/TripListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/TripListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.16624366" />
-    <property name="settings.editor.selected.configurable" value="project.kotlinCompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Properties" />
@@ -230,6 +232,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="449" y="160" width="1125" height="808" key="#PSD" timestamp="1592761935537">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="449" y="160" width="1125" height="808" key="#PSD/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592761935537" />
     <state x="1032" y="306" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591865697713">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -266,19 +272,21 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1052" y="455" key="ScreenshotRecorder.Options.Dimensions/0.23.1792.1097@0.23.1792.1097" timestamp="1591704804225" />
-    <state x="670" y="84" width="1077" height="722" key="SettingsEditor" timestamp="1591787366021">
+    <state x="670" y="84" width="1077" height="722" key="SettingsEditor" timestamp="1592751815892">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="670" y="84" width="1077" height="722" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1591787366021" />
+    <state x="670" y="84" key="SettingsEditor/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592751815892" />
     <state x="1121" y="356" key="chooseDestDirectoryDialog" timestamp="1592742199404">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1121" y="356" key="chooseDestDirectoryDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1591779000853" />
     <state x="1121" y="356" key="chooseDestDirectoryDialog/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592742199404" />
-    <state x="1014" y="404" key="com.intellij.ide.util.TipDialog" timestamp="1592555213171">
+    <state x="1014" y="404" key="com.intellij.ide.util.TipDialog" timestamp="1592750896991">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1014" y="404" key="com.intellij.ide.util.TipDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1592555213171" />
+    <state x="1014" y="404" key="com.intellij.ide.util.TipDialog/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592750896991" />
     <state x="896" y="23" width="896" height="1097" key="dock-window-1" timestamp="1591778745382">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>

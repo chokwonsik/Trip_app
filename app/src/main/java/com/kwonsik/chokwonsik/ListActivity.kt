@@ -14,7 +14,7 @@ class ListActivity : AppCompatActivity() {
 
     private lateinit var listAdapter: TripListAdapter
     private var viewModel: ListViewModel? = null
-    // ListViewModel을 담을 변수를 추
+    // ListViewModel을 담을 변수
     // TripListAdapter와 ListViewModel을 담을 속성을 선언
 
 

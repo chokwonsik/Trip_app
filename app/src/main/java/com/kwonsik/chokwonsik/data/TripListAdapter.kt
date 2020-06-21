@@ -20,7 +20,7 @@ class TripListAdapter(private val list: MutableList<TripData>):
     // item_Trip를 불러 ViewHolder를 생성함
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_trip, parent, false)
-        view.setOnClickListener { //아이템이 클릭될 때 view의 tagdptj Trip id를 받아서 리스너에 넘김
+        view.setOnClickListener { //아이템이 클릭될 때 view의 tag에서 Trip id를 받아서 리스너에 넘김
             itemClickListener?.run {
                 val tripId = it.tag as String
                 this(tripId)

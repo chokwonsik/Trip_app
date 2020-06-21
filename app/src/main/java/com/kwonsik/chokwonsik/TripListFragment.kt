@@ -54,7 +54,7 @@ class TripListFragment : Fragment() {
             }
 
             // TripLiveData에 observe 함수를 통해 값이 변할 때 동작할 Observer를 붙여줌
-            // Observer 내에서는 adapterd의 갱신 코드를 호출
+            // Observer 내에서는 adapter의 갱신 코드를 호출
             it.tripLiveData.observe(this,
                 Observer {
                     listAdapter.notifyDataSetChanged()

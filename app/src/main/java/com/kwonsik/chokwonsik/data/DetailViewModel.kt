@@ -82,15 +82,19 @@ class DetailViewModel : ViewModel() {
         if (imageFile.exists()) imageFile.delete()
 
         try {
+            // imageFile 객체에 지정된 경로로 새 파일을 생성.
             imageFile.createNewFile()
+            // FileOutputStream 으로 파라미터로 받은 이미지 데이터를 JPEG 으로 압축하여 저장하고 stream 객체를 닫음.
             val outputStream = FileOutputStream(imageFile)
 
             bitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream)
             outputStream.close()
 
+            // 저장이 끝나면 저정한 이미지 이름을 tripData에 갱신.
             tripData.imageFile = tripData.id + ".jpg"
             tripLiveData.value = tripData
         }
+        // 파일 생성시에도 Exception 처리가 중요함
         catch (e: Exception) {
             println(e)
         }

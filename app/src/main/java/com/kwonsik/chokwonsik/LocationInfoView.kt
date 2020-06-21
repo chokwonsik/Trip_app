@@ -25,7 +25,6 @@ class LocationInfoView @JvmOverloads constructor (context: Context,
 
 
     // 위치 값을 입력받았을때 표기하기 위한 함수
-
     fun setLocation(latitude: Double, longitude: Double) {
 
         Log.d(" lati_long","위도 : "+latitude.toString()+", 경도 : "+longitude.toString())
