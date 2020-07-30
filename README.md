@@ -1,3 +1,3 @@
-# ChoKwonsik
-  Kotlin, Android Studio, Graduation project, Travel app 
+# Trip_app
+  Kotlin, Android Studio, Graduation project
 
