@@ -34,14 +34,14 @@ class TripListAdapter(private val list: MutableList<TripData>):
         return list.count()
     }
 
-    //제목이 있는 경우 titleView를 화면에 표시(VISIBLE)하고 title 값을 할당하여 보여 줌
+    // 제목이 있는 경우 titleView를 화면에 표시(VISIBLE)하고 title 값을 할당하여 보여 줌.
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         if (list[position].title.isNotEmpty()) {
             holder.containerView.titleView.visibility = View.VISIBLE
             holder.containerView.titleView.text = list[position].title
         }
 
-        else {         // 제목이 없는 경우 titleView의 영역까지 숨겨줌(GONE)
+        else { // 제목이 없는 경우 titleView의 영역까지 숨겨줌(GONE)
 
             holder.containerView.titleView.visibility = View.GONE
         }

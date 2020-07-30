@@ -11,5 +11,5 @@ open class InfoView @JvmOverloads constructor (context: Context,
     init {
         inflate(context, R.layout.view_info, this)
     }
+    }
 
-}

@@ -9,7 +9,7 @@ import io.realm.RealmResults
 class RealmLiveData<T: RealmObject> (private val realmResults: RealmResults<T>)
     : LiveData<RealmResults<T>> () {
 
-    //받아온 realmResult를 value에 추가 (Observe가 동잗하도록 하기 위해)
+    //받아온 realm Result를 value에 추가 (Observe가 동잗하도록 하기 위해)
     init {
         value = realmResults
     }

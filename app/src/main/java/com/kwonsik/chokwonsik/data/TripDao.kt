@@ -6,6 +6,7 @@ import io.realm.Sort
 import java.util.*
 
 class TripDao(private val realm: Realm) {
+
     // DB에 담긴 TripData를 생성시간의 역순으로 정렬하여 받아
     fun getAllTrips(): RealmResults<TripData> {
         return realm.where(TripData::class.java)

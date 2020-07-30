@@ -19,15 +19,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/DetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/DetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/InfoView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/InfoView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/IntroActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/IntroActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/ListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/ListActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/LocationInfoView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/LocationInfoView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/TripListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/TripListFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/WeatherInfoView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/WeatherInfoView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/DetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/DetailViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/KwonsikTripApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/KwonsikTripApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/RealmLiveData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/RealmLiveData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/TripDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/TripDao.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/TripListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/TripListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/WeatherData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kwonsik/chokwonsik/data/WeatherData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_list.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +34,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="R39M5043Z3B" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_R" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -78,8 +77,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_R" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-06-21T13:05:43.904Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="R39M5043Z3B" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-06-22T05:12:38.131Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SelectDeploymentTargetsDialog.selectedDevices" value="R39M5043Z3B&#10;Pixel_2_API_R&#10;Samsung_Galaxy_S20_API_29" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -232,10 +231,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="449" y="160" width="1125" height="808" key="#PSD" timestamp="1592761935537">
-      <screen x="0" y="23" width="1792" height="1097" />
+    <state x="449" y="140" width="1125" height="808" key="#PSD" timestamp="1592828868487">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
+    <state x="449" y="140" key="#PSD/0.0.1792.1120@0.0.1792.1120" timestamp="1592828868487" />
     <state x="449" y="160" width="1125" height="808" key="#PSD/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592761935537" />
+    <state x="586" y="370" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592808614936">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="586" y="370" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1592808614936" />
     <state x="1032" y="306" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591865697713">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -244,25 +248,29 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1082" y="325" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1591767161887" />
-    <state width="854" height="286" key="GridCell.Tab.0.bottom" timestamp="1592749322299">
+    <state width="426" height="251" key="GridCell.Tab.0.bottom" timestamp="1592819649389">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="854" height="87" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671525" />
+    <state width="1750" height="313" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592808621210" />
+    <state width="426" height="251" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1592819649389" />
     <state width="854" height="286" key="GridCell.Tab.0.bottom/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
-    <state width="854" height="286" key="GridCell.Tab.0.center" timestamp="1592749322299">
+    <state width="426" height="251" key="GridCell.Tab.0.center" timestamp="1592819649388">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="854" height="87" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671524" />
+    <state width="1750" height="313" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592808621208" />
+    <state width="426" height="251" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1592819649388" />
     <state width="854" height="286" key="GridCell.Tab.0.center/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
-    <state width="854" height="286" key="GridCell.Tab.0.left" timestamp="1592749322299">
+    <state width="426" height="251" key="GridCell.Tab.0.left" timestamp="1592819649388">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="854" height="87" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671524" />
+    <state width="1750" height="313" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592808621208" />
+    <state width="426" height="251" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1592819649388" />
     <state width="854" height="286" key="GridCell.Tab.0.left/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
-    <state width="854" height="286" key="GridCell.Tab.0.right" timestamp="1592749322299">
+    <state width="426" height="251" key="GridCell.Tab.0.right" timestamp="1592819649388">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="854" height="87" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1591778671525" />
+    <state width="1750" height="313" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592808621209" />
+    <state width="426" height="251" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1592819649388" />
     <state width="854" height="286" key="GridCell.Tab.0.right/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592749322299" />
     <state x="484" y="321" key="IDE.errors.dialog" timestamp="1592738133179">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -272,9 +280,10 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1052" y="455" key="ScreenshotRecorder.Options.Dimensions/0.23.1792.1097@0.23.1792.1097" timestamp="1591704804225" />
-    <state x="670" y="84" width="1077" height="722" key="SettingsEditor" timestamp="1592751815892">
-      <screen x="0" y="23" width="1792" height="1097" />
+    <state x="670" y="62" width="1077" height="722" key="SettingsEditor" timestamp="1592823138232">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
+    <state x="670" y="62" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1592823138232" />
     <state x="670" y="84" width="1077" height="722" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1591787366021" />
     <state x="670" y="84" key="SettingsEditor/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592751815892" />
     <state x="1121" y="356" key="chooseDestDirectoryDialog" timestamp="1592742199404">
@@ -282,10 +291,11 @@
     </state>
     <state x="1121" y="356" key="chooseDestDirectoryDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1591779000853" />
     <state x="1121" y="356" key="chooseDestDirectoryDialog/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592742199404" />
-    <state x="1014" y="404" key="com.intellij.ide.util.TipDialog" timestamp="1592750896991">
-      <screen x="0" y="23" width="1792" height="1097" />
+    <state x="1014" y="389" key="com.intellij.ide.util.TipDialog" timestamp="1596088088857">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="1014" y="404" key="com.intellij.ide.util.TipDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1592555213171" />
+    <state x="1014" y="389" key="com.intellij.ide.util.TipDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1596088088857" />
+    <state x="1014" y="389" key="com.intellij.ide.util.TipDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1592874917723" />
     <state x="1014" y="404" key="com.intellij.ide.util.TipDialog/1792.-393.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1592750896991" />
     <state x="896" y="23" width="896" height="1097" key="dock-window-1" timestamp="1591778745382">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -295,5 +305,9 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1091" y="422" key="edit.logcat.filter.dialog.dimensions/0.23.1792.1097@0.23.1792.1097" timestamp="1591704917654" />
+    <state x="559" y="303" key="psd.add.library.dependency.panel.dimension" timestamp="1592802689927">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="559" y="303" key="psd.add.library.dependency.panel.dimension/0.0.1792.1120@0.0.1792.1120" timestamp="1592802689927" />
   </component>
 </project>

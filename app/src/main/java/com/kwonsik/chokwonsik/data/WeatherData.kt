@@ -23,7 +23,7 @@ class WeatherData {
             return GlobalScope.async(Dispatchers.IO) {
                 val requestUrl = "https://api.openweathermap.org/data/2.5/weather" +
                         "?lat=${latitude}&lon=${longitude}&mode=xml&units=metric&" +
-                        "&appid=b858fde5e4e077da4b8f6ff5bbd66047"
+                        "&appid=api"
 
                 // 결과값인 날씨(문자열)를 저장하는 변수
                 var currentWeather = ""
